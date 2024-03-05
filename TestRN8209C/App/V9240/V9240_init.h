@@ -1,0 +1,27 @@
+#ifndef _V9240_INIT_H_
+#define _V9240_INIT_H_
+
+
+
+
+
+typedef enum{
+	V9240_INIT_CALIBRATE_ADC_ZERO = 0,		//校准adc dc偏置
+	V9240_INIT_START,						//开启V9240
+	V9240_INIT_CALIBRATE_U_I_ZERO,			//校准 U 和 I 零点偏移
+	V9240_INIT_CALIBRATE_U_GAIN,			//校准电压倍差
+	V9240_INIT_CALIBRATE_I_GAIN,			//校准电流倍差
+	V9240_INIT_CALIBRATE_P_GAIN,			//校准功率倍差
+	V9240_INIT_CALIBRATE_P_GAIN_OFFSET,		//校准功率偏移
+	V9240_INIT_ALL,							//正常启动初始化
+	V9240_INIT_TYPE_MAX,
+}EN_V9240_INIT_TYPE;
+
+#define IF_V9240_INIT_TYPE_OK(Type) if(Type >= V9240_INIT_TYPE_MAX) return
+
+
+void V9240_Init(EN_V9240_INIT_TYPE Type);
+
+
+#endif
+
